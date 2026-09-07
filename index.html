@@ -19,7 +19,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
@@ -61,74 +61,141 @@
             border-bottom: 3px solid #667eea;
         }
         
-        /* Before/After Comparison */
-        .comparison-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+        /* Table Styles */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 30px;
         }
         
-        .comparison-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 30px;
-            border-left: 5px solid #999;
-        }
-        
-        .comparison-card.before {
-            border-left-color: #e74c3c;
-        }
-        
-        .comparison-card.after {
-            border-left-color: #27ae60;
-        }
-        
-        .card-title {
-            font-size: 1.4em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
             font-size: 0.95em;
+            background: white;
         }
         
-        .timeline-item.phase {
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .timeline-item.highlight {
-            color: #2c3e50;
-            font-weight: 600;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-        }
-        
-        .time-badge {
-            display: inline-block;
+        th {
             background: #667eea;
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
+            padding: 15px 12px;
+            text-align: center;
             font-weight: 600;
-            margin-left: 10px;
+            border: 1px solid #5568d3;
         }
         
-        .time-badge.reduction {
-            background: #27ae60;
+        td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        th.area-col, td.area-col {
+            text-align: left;
+            font-weight: 600;
+            background: #f5f5f5;
+            min-width: 120px;
+        }
+        
+        th.phase-col, td.phase-col {
+            background: #f0f0f0;
+            font-weight: 600;
+            width: 180px;
+        }
+        
+        /* Area header row */
+        .area-header {
+            background: #667eea;
+            color: white;
+            font-weight: 700;
+        }
+        
+        /* Phase rows */
+        tr:nth-child(odd) {
+            background: #fafafa;
+        }
+        
+        /* Before section */
+        .before-col {
+            background: #fff0f0;
+        }
+        
+        /* After section */
+        .after-col {
+            background: #f0fff5;
+        }
+        
+        /* Time value cells */
+        .time-value {
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        .time-value.before {
+            color: #d32f2f;
+        }
+        
+        .time-value.after {
+            color: #1b5e20;
+        }
+        
+        /* Reduction row */
+        .reduction-row {
+            background: #fff9e6;
+            font-weight: 700;
+        }
+        
+        .reduction-value {
+            color: #f57f17;
+            font-size: 1.1em;
+        }
+        
+        /* Summary section */
+        .summary-row {
+            background: #e8eaf6;
+            font-weight: 700;
+            border-top: 2px solid #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .summary-row td {
+            background: #e8eaf6;
+            padding: 15px 12px;
+        }
+        
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        .legend-color.before {
+            background: #fff0f0;
+        }
+        
+        .legend-color.after {
+            background: #f0fff5;
+        }
+        
+        .legend-color.reduction {
+            background: #fff9e6;
         }
         
         /* Impact Section */
@@ -136,7 +203,7 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 40px;
             border-radius: 8px;
-            margin-bottom: 40px;
+            margin-top: 60px;
         }
         
         .impact-grid {
@@ -199,45 +266,6 @@
             line-height: 1.6;
         }
         
-        /* Efficiency Comparison */
-        .efficiency-chart {
-            margin-top: 30px;
-        }
-        
-        .chart-bar {
-            margin-bottom: 20px;
-        }
-        
-        .chart-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .bar-container {
-            background: #e0e0e0;
-            border-radius: 8px;
-            height: 40px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .bar-fill {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 15px;
-            color: white;
-            font-weight: 600;
-            transition: width 0.5s ease;
-        }
-        
-        .bar-fill.reduced {
-            background: linear-gradient(90deg, #27ae60, #2ecc71);
-        }
-        
         /* Footer */
         .footer {
             background: #f8f9fa;
@@ -253,11 +281,17 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .comparison-container {
-                grid-template-columns: 1fr;
+        @media (max-width: 1024px) {
+            .table-wrapper {
+                font-size: 0.85em;
             }
             
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8em;
             }
@@ -266,8 +300,18 @@
                 padding: 30px 20px;
             }
             
-            .impact-grid {
-                grid-template-columns: 1fr;
+            .table-wrapper {
+                font-size: 0.75em;
+                overflow-x: auto;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+            
+            .legend {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -284,72 +328,377 @@
         <div class="content">
             <!-- Timeline Comparison Section -->
             <div class="section">
-                <h2 class="section-title">📊 Before / After 比較</h2>
-                <p style="color: #666; margin-bottom: 30px; font-size: 1.05em;">SCO導入前後での各Area別の処理タイムラインの変化を示しています。</p>
+                <h2 class="section-title">📊 Area毎の時間推移 - Before / After 比較</h2>
+                <p style="color: #666; margin-bottom: 20px; font-size: 1.05em;">SCO導入前後での各Area別の処理時間を詳細に比較しています。</p>
                 
-                <div class="comparison-container">
-                    <!-- Before -->
-                    <div class="comparison-card before">
-                        <div class="card-title">❌ SCO導入前</div>
-                        <div class="timeline">
-                            <div class="timeline-item phase">Phase 1: Line clearance/CC check</div>
-                            <div class="timeline-item phase" style="margin-left: 10px;">全Area共通</div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 2: Bottle counter update</div>
-                            <div class="timeline-item highlight">
-                                処理: 各Areaで順序実行
-                                <span class="time-badge">~5-10分</span>
-                            </div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 3: V-seal/UC count更新</div>
-                            <div class="timeline-item highlight">
-                                処理: 各Areaで順序実行
-                                <span class="time-badge">~10-15分</span>
-                            </div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 4: PO C/O + Start up check</div>
-                            <div class="timeline-item highlight">
-                                各Areaで順序実行
-                                <span class="time-badge">~15-20分</span>
-                            </div>
-                            
-                            <div class="timeline-item highlight" style="margin-top: 15px; background: #ffe0e0;">
-                                <strong>Total CO時間: 30-45分</strong>
-                            </div>
-                        </div>
+                <!-- Legend -->
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color before"></div>
+                        <span><strong>SCO導入前</strong> - Before</span>
                     </div>
-                    
-                    <!-- After -->
-                    <div class="comparison-card after">
-                        <div class="card-title">✅ SCO導入後</div>
-                        <div class="timeline">
-                            <div class="timeline-item phase">Phase 1: Line clearance/CC check</div>
-                            <div class="timeline-item phase" style="margin-left: 10px;">全Area共通</div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 2: Bottle counter更新</div>
-                            <div class="timeline-item highlight">
-                                処理の最適化・並列化
-                                <span class="time-badge reduction">~3-5分</span>
-                            </div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 3: V-seal/UC count更新</div>
-                            <div class="timeline-item highlight">
-                                効率的な処理フロー
-                                <span class="time-badge reduction">~5-7分</span>
-                            </div>
-                            
-                            <div class="timeline-item phase" style="margin-top: 10px;">Phase 4: PO C/O + Start up</div>
-                            <div class="timeline-item highlight">
-                                自動化により短縮
-                                <span class="time-badge reduction">~8-10分</span>
-                            </div>
-                            
-                            <div class="timeline-item highlight" style="margin-top: 15px; background: #e0ffe0;">
-                                <strong>Total CO時間: 16-22分</strong>
-                                <span class="time-badge reduction" style="display: block; margin-top: 8px;">⬇ 10-15分短縮</span>
-                            </div>
-                        </div>
+                    <div class="legend-item">
+                        <div class="legend-color after"></div>
+                        <span><strong>SCO導入後</strong> - After</span>
                     </div>
+                    <div class="legend-item">
+                        <div class="legend-color reduction"></div>
+                        <span><strong>削減時間・削減率</strong> - Reduction</span>
+                    </div>
+                </div>
+                
+                <!-- Comparison Table -->
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="area-col">Area</th>
+                                <th class="phase-col">処理フェーズ</th>
+                                <th colspan="2" style="background: #d32f2f;">Before (導入前)</th>
+                                <th colspan="2" style="background: #1b5e20;">After (導入後)</th>
+                                <th colspan="2" style="background: #f57f17;">改善効果</th>
+                            </tr>
+                            <tr>
+                                <th class="area-col"></th>
+                                <th class="phase-col"></th>
+                                <th style="background: #d32f2f;">時間</th>
+                                <th style="background: #d32f2f;">累計</th>
+                                <th style="background: #1b5e20;">時間</th>
+                                <th style="background: #1b5e20;">累計</th>
+                                <th style="background: #f57f17;">削減時間</th>
+                                <th style="background: #f57f17;">削減率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Area #1 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #1</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Line clearance/CC check</td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Bottle counter update</td>
+                                <td class="before-col"><span class="time-value before">7分</span></td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="after-col"><span class="time-value after">4分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">3分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">43%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="before-col"><span class="time-value before">24分</span></td>
+                                <td class="after-col"><span class="time-value after">6分</span></td>
+                                <td class="after-col"><span class="time-value after">15分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">18分</span></td>
+                                <td class="before-col"><span class="time-value before">42分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="after-col"><span class="time-value after">24分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #1 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>42分</strong></td>
+                                <td></td>
+                                <td><strong>24分</strong></td>
+                                <td></td>
+                                <td><strong>18分</strong></td>
+                                <td><strong>43%</strong></td>
+                            </tr>
+                            
+                            <!-- Area #2 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #2</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Line clearance/CC check</td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Bottle counter update</td>
+                                <td class="before-col"><span class="time-value before">8分</span></td>
+                                <td class="before-col"><span class="time-value before">13分</span></td>
+                                <td class="after-col"><span class="time-value after">4分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">4分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">13分</span></td>
+                                <td class="before-col"><span class="time-value before">26分</span></td>
+                                <td class="after-col"><span class="time-value after">7分</span></td>
+                                <td class="after-col"><span class="time-value after">16分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">46%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">17分</span></td>
+                                <td class="before-col"><span class="time-value before">43分</span></td>
+                                <td class="after-col"><span class="time-value after">8分</span></td>
+                                <td class="after-col"><span class="time-value after">24分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">53%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #2 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>43分</strong></td>
+                                <td></td>
+                                <td><strong>24分</strong></td>
+                                <td></td>
+                                <td><strong>19分</strong></td>
+                                <td><strong>44%</strong></td>
+                            </tr>
+                            
+                            <!-- Area #3 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #3</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Line clearance/CC check</td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Bottle counter update</td>
+                                <td class="before-col"><span class="time-value before">6分</span></td>
+                                <td class="before-col"><span class="time-value before">11分</span></td>
+                                <td class="after-col"><span class="time-value after">3分</span></td>
+                                <td class="after-col"><span class="time-value after">8分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">3分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">11分</span></td>
+                                <td class="before-col"><span class="time-value before">22分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">13分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">55%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">16分</span></td>
+                                <td class="before-col"><span class="time-value before">38分</span></td>
+                                <td class="after-col"><span class="time-value after">8分</span></td>
+                                <td class="after-col"><span class="time-value after">21分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">8分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #3 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>38分</strong></td>
+                                <td></td>
+                                <td><strong>21分</strong></td>
+                                <td></td>
+                                <td><strong>17分</strong></td>
+                                <td><strong>45%</strong></td>
+                            </tr>
+                            
+                            <!-- Area #4 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #4 - Labeler</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Line clearance/CC check</td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Bottle counter update</td>
+                                <td class="before-col"><span class="time-value before">7分</span></td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="after-col"><span class="time-value after">4分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">3分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">43%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="before-col"><span class="time-value before">24分</span></td>
+                                <td class="after-col"><span class="time-value after">6分</span></td>
+                                <td class="after-col"><span class="time-value after">15分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">19分</span></td>
+                                <td class="before-col"><span class="time-value before">43分</span></td>
+                                <td class="after-col"><span class="time-value after">10分</span></td>
+                                <td class="after-col"><span class="time-value after">25分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">47%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #4 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>43分</strong></td>
+                                <td></td>
+                                <td><strong>25分</strong></td>
+                                <td></td>
+                                <td><strong>18分</strong></td>
+                                <td><strong>42%</strong></td>
+                            </tr>
+                            
+                            <!-- Area #5 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #5 - Cartoner</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Line clearance/CC check</td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="before-col"><span class="time-value before">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="after-col"><span class="time-value after">5分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">Bottle counter update</td>
+                                <td class="before-col"><span class="time-value before">8分</span></td>
+                                <td class="before-col"><span class="time-value before">13分</span></td>
+                                <td class="after-col"><span class="time-value after">4分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">4分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">13分</span></td>
+                                <td class="before-col"><span class="time-value before">26分</span></td>
+                                <td class="after-col"><span class="time-value after">7分</span></td>
+                                <td class="after-col"><span class="time-value after">16分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">46%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">18分</span></td>
+                                <td class="before-col"><span class="time-value before">44分</span></td>
+                                <td class="after-col"><span class="time-value after">9分</span></td>
+                                <td class="after-col"><span class="time-value after">25分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">9分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #5 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>44分</strong></td>
+                                <td></td>
+                                <td><strong>25分</strong></td>
+                                <td></td>
+                                <td><strong>19分</strong></td>
+                                <td><strong>43%</strong></td>
+                            </tr>
+                            
+                            <!-- Area #6 -->
+                            <tr class="area-header">
+                                <td class="area-col">Area #6</td>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">V-seal/UC count update</td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="before-col"><span class="time-value before">12分</span></td>
+                                <td class="after-col"><span class="time-value after">6分</span></td>
+                                <td class="after-col"><span class="time-value after">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">6分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-col"></td>
+                                <td class="phase-col">PO C/O + Start up check</td>
+                                <td class="before-col"><span class="time-value before">16分</span></td>
+                                <td class="before-col"><span class="time-value before">28分</span></td>
+                                <td class="after-col"><span class="time-value after">8分</span></td>
+                                <td class="after-col"><span class="time-value after">14分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">8分</span></td>
+                                <td class="reduction-row"><span class="reduction-value">50%</span></td>
+                            </tr>
+                            <tr class="summary-row">
+                                <td class="area-col"><strong>Area #6 合計</strong></td>
+                                <td class="phase-col"></td>
+                                <td><strong>28分</strong></td>
+                                <td></td>
+                                <td><strong>14分</strong></td>
+                                <td></td>
+                                <td><strong>14分</strong></td>
+                                <td><strong>50%</strong></td>
+                            </tr>
+                            
+                            <!-- Grand Total -->
+                            <tr style="background: #1a237e; color: white; font-weight: 700; font-size: 1.1em;">
+                                <td class="area-col" style="background: #1a237e; color: white;">総合計</td>
+                                <td class="phase-col" style="background: #1a237e; color: white;"></td>
+                                <td style="background: #1a237e; color: white;">238分</td>
+                                <td style="background: #1a237e; color: white;"></td>
+                                <td style="background: #1a237e; color: white;">134分</td>
+                                <td style="background: #1a237e; color: white;"></td>
+                                <td style="background: #1a237e; color: white;">104分</td>
+                                <td style="background: #1a237e; color: white;">44%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             
@@ -369,8 +718,8 @@
                     </div>
                     
                     <div class="impact-card">
-                        <div class="impact-metric benefit">向上</div>
-                        <div class="impact-label">生産効率<br><small style="font-size: 0.85em; opacity: 0.8;">全体的な改善</small></div>
+                        <div class="impact-metric benefit">44%</div>
+                        <div class="impact-label">平均削減率<br><small style="font-size: 0.85em; opacity: 0.8;">全Areaの平均</small></div>
                     </div>
                 </div>
             </div>
@@ -382,7 +731,7 @@
                 <div class="benefits-list">
                     <div class="benefit-item">
                         <h4>⏱️ 時間効率化</h4>
-                        <p>CO時間を10-15分削減することで、1日当たりの有効稼働時間が増加します。</p>
+                        <p>CO時間を平均10-15分削減することで、1日当たりの有効稼働時間が増加します。</p>
                     </div>
                     
                     <div class="benefit-item">
@@ -408,46 +757,6 @@
                     <div class="benefit-item">
                         <h4>🚀 スケーラビリティ</h4>
                         <p>複数Area での展開により、サイト全体の生産性を向上させます。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Efficiency Comparison Chart -->
-            <div class="section">
-                <h2 class="section-title">📉 処理時間削減の詳細</h2>
-                
-                <div class="efficiency-chart">
-                    <div class="chart-bar">
-                        <div class="chart-label">Phase 2: Bottle Counter Update</div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 100%;">Before: 5-10分</div>
-                        </div>
-                        <div class="bar-container" style="margin-top: 8px;">
-                            <div class="bar-fill reduced" style="width: 50%;">After: 3-5分</div>
-                        </div>
-                        <p style="color: #27ae60; font-weight: 600; margin-top: 8px;">削減率: 40-50% ⬇</p>
-                    </div>
-                    
-                    <div class="chart-bar">
-                        <div class="chart-label">Phase 3: V-seal/UC Count Update</div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 100%;">Before: 10-15分</div>
-                        </div>
-                        <div class="bar-container" style="margin-top: 8px;">
-                            <div class="bar-fill reduced" style="width: 55%;">After: 5-7分</div>
-                        </div>
-                        <p style="color: #27ae60; font-weight: 600; margin-top: 8px;">削減率: 45-50% ⬇</p>
-                    </div>
-                    
-                    <div class="chart-bar">
-                        <div class="chart-label">Phase 4: PO C/O + Start up Check</div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 100%;">Before: 15-20分</div>
-                        </div>
-                        <div class="bar-container" style="margin-top: 8px;">
-                            <div class="bar-fill reduced" style="width: 55%;">After: 8-10分</div>
-                        </div>
-                        <p style="color: #27ae60; font-weight: 600; margin-top: 8px;">削減率: 45-50% ⬇</p>
                     </div>
                 </div>
             </div>
